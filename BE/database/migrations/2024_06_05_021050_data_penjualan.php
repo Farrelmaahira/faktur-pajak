@@ -14,17 +14,12 @@ return new class extends Migration
         Schema::create('data_penjualan', function(Blueprint $table){
             $table->id();
             $table->string('mitra_id');
-            $table->string('no_hp');
-            $table->string('alamat');
             $table->date('tanggal');
-            $table->integer('kode_transaksi');
-            $table->string('keterangan');
+            $table->string('kode_transaksi');
+            $table->string('bkp');
             $table->integer('kuantitas');
-            $table->integer('harga_satuan');
             $table->string('harga_jual');
             $table->string('referensi');
-            $table->integer('dasar_pengenaan_pajak');
-            $table->integer('harga_jual_inc_pajak');
             $table->timestamps();
         });
     }

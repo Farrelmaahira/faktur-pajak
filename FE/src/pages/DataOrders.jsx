@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const DataOrders = () => {
   const [data, setData] = useState();
   const fetchAPI = async () => {
-    const data = await axios.get("http://localhost:8000/api/orders");
+    const data = await axios.get("http://localhost:8000/api/v1/orders");
     setData(data.data.data);
   };
 
@@ -39,24 +39,26 @@ const DataOrders = () => {
               </thead>
               <tbody>
                 {data?.map((item, index) => {
-                  console.log(item);
                   return (
-                    <tr
-                      className="odd:bg-white even:bg-gray-50  border-b"
-                      key={index}
-                    >
-                      <th
-                        scope="row"
-                        className="px-6 py-4 font-medium whitespace-nowrap"
+                      <tr
+                        className="odd:bg-white even:bg-gray-50  border-b"
+                        key={index}
                       >
-                        <Link className="text-blue-500 hover:underline" to={`/data-order/${item.id}`}>
-                        {item.mitra.nama_kios}
-                        </Link>
-                      </th>
-                      <td className="px-6 py-4">{item.tanggal_order}</td>
-                      <td className="px-6 py-4">{item.jenis_penjualan}</td>
-                      <td className="px-6 py-4">{item.jenis_transaksi}</td>
-                    </tr>
+                        <th
+                          scope="row"
+                          className="px-6 py-4 font-medium whitespace-nowrap"
+                        >
+                          <Link
+                            className="text-blue-500 hover:underline"
+                            to={`/data-order/${item.id}`}
+                          >
+                            {item.mitra.nama_kios}
+                          </Link>
+                        </th>
+                        <td className="px-6 py-4">{item.tanggal_order}</td>
+                        <td className="px-6 py-4">{item.jenis_penjualan}</td>
+                        <td className="px-6 py-4">{item.jenis_transaksi}</td>
+                      </tr>
                   );
                 })}
               </tbody>

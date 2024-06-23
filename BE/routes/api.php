@@ -30,5 +30,6 @@ Route::prefix('v1')->group(function(){
         Route::get('/data-penjualan', 'getData')->middleware('auth:sanctum');
         Route::post('/data-penjualan', 'postData')->middleware('auth:sanctum');
         Route::delete('/data-penjualan/{id}', 'deleteData')->middleware('auth:sanctum');    
+        Route::get('/data-penjualan/{id}', 'getById')->middleware('auth:sanctum');
     });      
 });
