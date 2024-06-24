@@ -57,13 +57,8 @@ const Preview = () => {
             Faktur Pajak Keluaran KANWIL MALUKU DAN MALUT
           </h1>
         </div>
-        <div className="">
+        <div className="my-2">
           <Card>
-            <div className="header border-b">
-              <h2 className="text-large font-bold text-slate-500 my-2">
-                Form Faktur Pajak Keluaran
-              </h2>
-            </div>
             <div className="my-2 bg-slate-200 h-fit p-3">
               <div className="flex flex-col w-full">
                 <div className="flex flex-row justify-center mt-3">
@@ -106,7 +101,7 @@ const Preview = () => {
                 </div>
                 <div className="w-full flex flex-row justify-between my-2">
                   <label className="mx-auto">Kode Transaksi</label>
-                  <select name="" disabled>
+                  <select name="" disabled className="w-3/4">
                     <option value="Penyerhan yang dibebaskan dari pengenaan PPN atau PPN dan PPnBM kepada selain pemungutan PPN">
                       08 - Penyerhan yang dibebaskan dari pengenaan PPN atau PPN
                       dan PPnBM kepada selain pemungutan PPN
