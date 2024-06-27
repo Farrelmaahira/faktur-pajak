@@ -1,0 +1,453 @@
+{
+	"info": {
+		"_postman_id": "c890f7ea-4939-4210-94a9-cb6aaaee7f1e",
+		"name": "AKUNTANSI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24198031"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "LOGIN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = JSON.parse(responseBody)\r",
+									"if(json?.token) {\r",
+									"    pm.collectionVariables.set(\"token\", json.token);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Admin\",\r\n    \"password\" : \"passadmin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "LOGIN",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"Admin\",\r\n    \"password\" : \"passadmin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/auth/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8001"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 12 Jun 2024 13:55:30 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 12 Jun 2024 13:55:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"2|iauzAV3BPn0czSad40Wkw9xFthEeZhbVAWEKQasU4ef8411a\"\n}"
+						}
+					]
+				},
+				{
+					"name": "LOGOUT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/auth/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "14|6ZJOE6bMyJxIkaw5y8Pnu1nzKMlrrbQ8WVXAlr7e10c11f0d",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/data-penjualan?date=2024-05-06",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"data-penjualan"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2024-05-06"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/data-penjualan",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"data-penjualan"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8001"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Jun 2024 13:56:24 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Jun 2024 13:56:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "GET",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/data-penjualan",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"data-penjualan"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8001"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Jun 2024 13:57:51 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Jun 2024 13:57:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.10"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"mitra_id\": \"123\",\n            \"no_hp\": \"0812345678\",\n            \"alamat\": \"Jalan merdeka\",\n            \"tanggal\": \"2024-05-06\",\n            \"kode_transaksi\": 8,\n            \"keterangan\": \"PENYERAHAN YANG DIBEBASKAN DARI PENGENAAN PPN ATAU PPN DAN PPNBM KEPADA SELAIN PMUNGUT PPN Komoditi 28 beras dibebaskan\",\n            \"kuantitas\": 1,\n            \"harga_satuan\": 10000,\n            \"harga_jual\": \"10000\",\n            \"referensi\": \"0004\",\n            \"dasar_pengenaan_pajak\": 10000,\n            \"harga_jual_inc_pajak\": 10000,\n            \"created_at\": \"2024-06-05T12:24:08.000000Z\",\n            \"updated_at\": \"2024-06-05T12:24:08.000000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "CREATE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mitra_id\" : \"2e40194d\",\r\n    \"no_hp\" : \"0812345678\",\r\n    \"alamat\" : \"Jalan merdeka\",\r\n    \"tanggal\" : \"2024-05-06\",\r\n    \"kode_transaksi\" : \"08\", \r\n    \"keterangan\" : \"PENYERAHAN YANG DIBEBASKAN DARI PENGENAAN PPN ATAU PPN DAN PPNBM KEPADA SELAIN PMUNGUT PPN Komoditi 28 beras dibebaskan\",\r\n    \"kuantitas\" : 1,\r\n    \"harga_satuan\" : 10000,\r\n    \"harga_jual\" : 10000,\r\n    \"referensi\" : \"0004\",\r\n    \"dasar_pengenaan_pajak\" : 10000,\r\n    \"harga_jual_inc_pajak\" : 10000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/data-penjualan",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"data-penjualan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/data-penjualan/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"data-penjualan",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY ID",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8001",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "1|dEpgHtBps0Yk8s2ypV4YRYmRFanl8pShKnq92aHsd0df088c",
+			"type": "string"
+		}
+	]
+}
